@@ -9,6 +9,7 @@
 #import "Calculator.h"
 
 @implementation Calculator
+@synthesize operator;
 
 -(id)init{
     self = [super init];
@@ -16,33 +17,34 @@
     operator = 3;
     return self;
 }
-
 -(double)getValue{
     return total;
 }
--(void)nextVal:(double)i withOperator:(int)nextOp{
+-(void)nextVal:(double)nextNumber withOperator:(int)nextOp{
+    NSLog(@"Operator: %i", operator);
+    NSLog(@"nextOp: %i", nextOp);
     switch (operator) {
         case 0:
             //division
-            total = total / i;
+            total = total / nextNumber;
             break;
         case 1:
             //multiply
-            total = total * i;
+            total = total * nextNumber;
             break;
         case 2:
             //subtraction
-            total = total - i;
+            total = total - nextNumber;
             NSLog(@"minus bitch!");
             break;
         case 3:
             //addition
-            total = total + i;
+            total = total + nextNumber;
             NSLog(@"addition bitch!");
             break;
         case 5:
             //evaluate
-            total = i;
+            total = nextNumber;
             break;
     }
     if (nextOp == 4) {

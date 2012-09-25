@@ -42,6 +42,10 @@
 @synthesize LCDScreen;
 
 - (IBAction)clear:(id)sender {
+    dot=0.0;
+    tempVal=0;
+    [calc nextVal:0 withOperator:4];
+    [LCDScreen setText:[NSString stringWithFormat:@"%.5f", [calc getValue]]];
 }
 
 - (IBAction)divide:(id)sender {
@@ -65,8 +69,8 @@
 }
 
 - (IBAction)equals:(id)sender {
-    [calc nextVal:tempVal withOperator:5];
     dot = 0.0;
+    [calc nextVal:tempVal withOperator:5];
     [LCDScreen setText:[NSString stringWithFormat:@"%.5f", [calc getValue]]];
     
 }

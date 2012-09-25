@@ -12,7 +12,8 @@
     double total;
     int operator;
 }
+@property int operator;
 -(double)getValue;
--(void)nextVal:(double)i withOperator:(int) nextOp;
+-(void)nextVal:(double)nextNumber withOperator:(int) nextOp;
 
 @end
